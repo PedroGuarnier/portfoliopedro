@@ -137,6 +137,103 @@
 
     .reveal{opacity:0;transform:translateY(18px);transition:all .7s cubic-bezier(.2,.9,.2,1)}
     .reveal.visible{opacity:1;transform:none}
+    /* ======= Responsividade ======= */
+
+/* Tablets e telas médias */
+@media(max-width: 900px){
+  /* Hero e cards empilhados */
+  .hero{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .intro h2{
+    font-size: 26px;
+  }
+
+  .grid-3{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .projects{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  header{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  nav{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  nav a{
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
+
+/* Celulares pequenos */
+@media(max-width: 520px){
+  .grid-3{
+    grid-template-columns: 1fr;
+  }
+
+  .intro h2{
+    font-size: 22px;
+  }
+
+  .btn, .ghost, .btn-sm, .ghost-sm{
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .project-links{
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contact{
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .socials{
+    justify-content: flex-start;
+  }
+
+  .profile-card{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  header{
+    padding: 10px 16px;
+  }
+}
+
+/* Celulares muito pequenos */
+@media(max-width: 360px){
+  .intro h2{
+    font-size: 20px;
+  }
+
+  nav a{
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .btn, .ghost, .btn-sm, .ghost-sm{
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
   </style>
 </head>
 <body>
