@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pedro Guarnier — Portfólio</title>
+  <meta name="description" content="Portfólio profissional de Pedro Guarnier — Estagiário de TI, Desenvolvedor e entusiasta de IA e Ciência de Dados.">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#05070d;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#6366f1;
+      --accent2:#ec4899;
+      --glass: rgba(255,255,255,0.05);
+      --radius:18px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:radial-gradient(circle at 20% 20%,#111827,#05070d 80%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    .container{max-width:1200px;margin:0 auto;padding:32px}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:32px;position:sticky;top:0;background:rgba(5,7,13,0.8);backdrop-filter:blur(10px);z-index:1000;padding:12px 24px;border-radius:var(--radius)
+    }
+    .brand{display:flex;align-items:center;gap:12px;animation:fadeIn 1s ease forwards}
+    .logo{
+      width:60px;height:60px;border-radius:50%;background:conic-gradient(from 180deg,var(--accent),var(--accent2),var(--accent));display:grid;place-items:center;font-weight:800;color:white;font-size:20px;box-shadow:0 0 18px rgba(236,72,153,0.4);animation:spin 6s linear infinite
+    }
+    .brand h1{font-size:20px;margin:0}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 14px;border-radius:12px;font-weight:600;position:relative;overflow:hidden;transition:.3s}
+    nav a::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transition:.3s;transform-origin:right}
+    nav a:hover{color:white}
+    nav a:hover::after{transform:scaleX(1);transform-origin:left}
+
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-bottom:32px}
+    .card{
+      background:linear-gradient(145deg,rgba(255,255,255,0.02),rgba(255,255,255,0.005));border-radius:var(--radius);padding:28px;box-shadow:0 12px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px);animation:fadeUp 1s ease forwards;transition:transform .3s
+    }
+    .card:hover{transform:translateY(-6px)}
+
+    .intro h2{margin:0;font-size:30px;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;color:transparent}
+    .intro p{color:var(--muted);margin-top:12px}
+    .cta{display:flex;gap:14px;margin-top:20px}
+    .btn{background:linear-gradient(90deg,var(--accent),var(--accent2));color:white;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:0 6px 20px rgba(99,102,241,0.4);transition:.3s}
+    .btn:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 10px 28px rgba(236,72,153,0.4)}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted);padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700;transition:.3s}
+    .ghost:hover{color:white;border-color:var(--accent);transform:translateY(-2px)}
+
+    .profile-card{display:flex;flex-direction:column;align-items:center;gap:10px;transition:transform .3s}
+    .profile-card:hover{transform:translateY(-4px)}
+   .avatar-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;  /* foca mais no topo da imagem */
+    box-shadow: 0 0 18px rgba(99,102,241,0.3);
+    }
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .skill{background:var(--glass);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.04);transition:.4s}
+    .skill:hover{transform:translateY(-6px);box-shadow:0 12px 24px rgba(236,72,153,0.3)}
+    .skill h4{margin:0 0 8px 0;color:var(--accent)}
+
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .project{padding:18px;border-radius:14px;background:var(--glass);border:1px solid rgba(255,255,255,0.04);position:relative;overflow:hidden;transition:transform .4s, box-shadow .4s   pointer-events: none; /* <<< ADICIONE ISSO */
+}
+    .project::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,var(--accent) 0%,var(--accent2) 100%);opacity:0;transition:.4s;z-index:0}
+    .project:hover{transform:translateY(-8px);box-shadow:0 14px 30px rgba(99,102,241,0.4)}
+    .project:hover::before{opacity:0.12}
+    .project h4{margin:0 0 8px 0;position:relative;z-index:1;color:var(--accent2)}
+    .project p{color:var(--muted);margin:0;position:relative;z-index:1}
+    .project-links a {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-sm {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-sm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(236,72,153,0.4);
+}
+
+.ghost-sm {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.ghost-sm:hover {
+  border-color: var(--accent);
+  color: white;
+}
+
+    .contact{display:flex;gap:16px;align-items:center}
+    .socials{display:flex;gap:10px}
+    .socials a{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--glass);text-decoration:none;transition:.3s}
+    .socials a:hover{background:linear-gradient(135deg,var(--accent),var(--accent2));transform:scale(1.1)}
+
+    footer{color:var(--muted);font-size:13px;padding-top:20px;text-align:center;border-top:1px dashed rgba(255,255,255,0.04);margin-top:28px}
+
+    @keyframes fadeIn{0%{opacity:0;transform:translateY(-10px)}100%{opacity:1;transform:none}}
+    @keyframes fadeUp{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:none}}
+    @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid-3{grid-template-columns:repeat(2,1fr)}.projects{grid-template-columns:1fr}}
+    @media(max-width:520px){.grid-3{grid-template-columns:1fr}}
+
+    .reveal{opacity:0;transform:translateY(18px);transition:all .7s cubic-bezier(.2,.9,.2,1)}
+    .reveal.visible{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">PG</div>
+        <div>
+          <h1>Pedro Guarnier</h1>
+          <div class="meta">Estagiário de TI • Desenvolvedor • Entusiasta de IA</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="card intro reveal" id="sobre">
+          <h2>Olá, eu sou o Pedro!</h2>
+          <p>Estagiário de TI no Escritório de Advocacia Zveiter, apaixonado por resolver problemas através de tecnologia. Atuo com suporte técnico, infraestrutura e desenvolvimento web, enquanto me especializo em Inteligência Artificial e Ciência de Dados.</p>
+
+          <div class="cta">
+            <a class="btn" href="#contato">Entrar em contato</a>
+            <a class="ghost" href="#projetos">Ver projetos</a>
+          </div>
+        </div>
+
+        <aside class="card profile-card reveal">
+        <img src="foto/fotopedro22.jpeg" alt="Foto de Pedro Guarnier" class="avatar-img">
+        <strong>Pedro Guarnier</strong>
+        <div class="meta">Rio de Janeiro, Brasil</div>
+        <div style="margin-top:12px;display:flex;gap:10px">
+            <a class="ghost" href="https://github.com/PedroGuarnier" target="_blank">GitHub</a>
+            <a class="ghost" href="https://www.linkedin.com/in/pedroguarnier/" target="_blank">LinkedIn</a>
+        </div>
+        </aside>
+      </section>
+
+      <section class="card reveal" id="skills">
+        <h3>Habilidades</h3>
+        <div class="grid-3" style="margin-top:14px">
+          <div class="skill"><h4>Desenvolvimento</h4><p>Python, JavaScript (React), Node.js, PHP, HTML, CSS</p></div>
+          <div class="skill"><h4>Infraestrutura & Suporte</h4><p>Redes, Active Directory, Troubleshooting, Inventário de TI</p></div>
+          <div class="skill"><h4>Dados & IA</h4><p>Machine Learning, Pandas, scikit-learn, LLMs, pipelines</p></div>
+        </div>
+      </section>
+
+      <section class="card reveal" id="projetos">
+        <h3>Projetos selecionados</h3>
+        <div class="projects" style="margin-top:14px">
+          <article class="project">
+            <h4>Site Institucional — Escritório de Advocacia Zveiter</h4>
+            <p>
+                Desenvolvimento responsivo do site institucional usando HTML, CSS e JavaScript. 
+                Implementação de menu interativo, rolagem suave e otimizações de usabilidade.
+            </p>
+
+            <div class="project-links">
+                <a href="https://zveiter.com.br" target="_blank" class="btn-sm">🌐 Ver Site</a>
+                <a href="https://github.com/PedroGuarnier/SiteZveiter" target="_blank" class="ghost-sm">💻 Código no GitHub</a>
+            </div>
+            </article>
+
+          <article class="project">
+            <h4>Laboratório de IA (projeto pessoal)</h4>
+            <p>Scripts em Python para análise exploratória, pré-processamento de dados e experimentos com Machine Learning supervisionado e LLMs.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card reveal" id="contato">
+        <h3>Contato</h3>
+        <p style="color:var(--muted)">Aberto a oportunidades de estágio, freelances e colaborações em IA, dados e desenvolvimento.</p>
+        <div class="contact" style="margin-top:14px">
+          <div><div style="font-weight:700">Email</div><div class="meta">pedroguarnier07@gmail.com</div></div>
+          <div style="margin-left:auto;text-align:right"><div style="font-weight:700">Telefone</div><div class="meta">+55 (21) 97018-4255</div></div>
+        </div>
+        <div class="socials" style="margin-top:14px">
+          <a href="https://github.com/PedroGuarnier" target="_blank">🐱</a>
+          <a href="https://www.linkedin.com/in/pedroguarnier/" target="_blank">💼</a>
+        </div>
+      </section>
+
+      <footer>
+        © 2025 Pedro Guarnier — Desenvolvedor & Entusiasta de IA
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    function revealOnScroll(){
+      const trigger = window.innerHeight * 0.85;
+      reveals.forEach((el,i) => {
+        const top = el.getBoundingClientRect().top;
+        if(top < trigger){
+          setTimeout(()=> el.classList.add('visible'), i*120);
+        }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click',e=>{
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+      });
+    });
+  </script>
+</body>
+</html>
