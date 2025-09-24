@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfólio - Pedro Guarnier</title>
   <link rel="stylesheet" href="style.css"/> <!-- Seu CSS atualizado -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
   <div class="container">
@@ -33,26 +35,49 @@
     </header>
 
     <!-- Hero -->
-    <section class="hero" id="sobre">
-      <div class="card intro reveal">
-        <h2>Olá, eu sou o Pedro 👋</h2>
-        <p>Estagiário de TI no Escritório de Advocacia Zveiter, Estudante de Ciência da Computação e formado em Marketing, apaixonado por resolver problemas através de tecnologia. Atuo com suporte técnico, infraestrutura e desenvolvimento web, enquanto me especializo em Inteligência Artificial e Ciência de Dados.</p>
-        <div class="cta">
-          <a href="pdf/CV Pedro Guarnier (2).pdf" class="btn" download>📄 Baixar CV</a>
-          <a href="https://github.com/PedroGuarnier" target="_blank" class="ghost">🐱 GitHub</a>
-        </div>
-      </div>
+<section class="hero" id="sobre">
+  <!-- Coluna da esquerda -->
+  <div class="card intro reveal">
+    <h2>Olá, eu sou o Pedro 👋</h2>
+    <p>
+      Estagiário de TI no Escritório de Advocacia Zveiter, Estudante de Ciência da Computação e formado em Marketing,
+      apaixonado por resolver problemas através de tecnologia. Atuo com suporte técnico, infraestrutura e desenvolvimento web,
+      enquanto me especializo em Inteligência Artificial e Ciência de Dados.
+    </p>
 
-      <aside class="card profile-card reveal">
-        <img src="foto/fotopedro22.jpeg" alt="Foto de Pedro Guarnier" class="avatar-img">
-        <strong>Pedro Guarnier</strong>
-        <div class="meta">Rio de Janeiro, Brasil</div>
-        <div style="margin-top:12px;display:flex;gap:10px">
-          <a class="ghost" href="https://github.com/PedroGuarnier" target="_blank">GitHub</a>
-          <a class="ghost" href="https://www.linkedin.com/in/pedroguarnier/" target="_blank">LinkedIn</a>
-        </div>
-      </aside>
-    </section>
+    <div class="cta">
+      <a href="pdf/CV Pedro Guarnier (2).pdf" class="btn" download>📄 Baixar CV</a>
+      <button class="ghost" id="certBtn">🏅 Certificados</button>
+    </div>
+
+    <!-- Modal de Certificados -->
+    <div id="certModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>📜 Meus Certificados</h3>
+        <ul class="cert-list">
+            <li>🔹 <strong>Python para Análise de Dados</strong> — DataCamp</li>
+            <li>🔹 <strong>Desenvolvimento Web Moderno</strong> — Digital Innovation One (DIO)</li>
+            <li>🔹 <strong>CHATGPT For Devs</strong> — Digital Innovation One (DIO)</li>
+            <li>🔹 <strong>Git e Controle de Versão</strong> — Digital Innovation One (DIO)</li>
+            <li>🔹 <strong>Prompts Inteligentes</strong> — Microsoft</li>
+        </ul>
+      </div>
+    </div>
+  </div> <!-- 🔹 fecha a intro -->
+
+  <!-- Coluna da direita -->
+  <aside class="card profile-card reveal">
+    <img src="foto/fotopedro22.jpeg" alt="Foto de Pedro Guarnier" class="avatar-img">
+    <strong>Pedro Guarnier</strong>
+    <div class="meta">Rio de Janeiro, Brasil</div>
+    <div style="margin-top:12px;display:flex;gap:10px">
+      <a class="ghost" href="https://github.com/PedroGuarnier" target="_blank">GitHub</a>
+      <a class="ghost" href="https://www.linkedin.com/in/pedroguarnier/" target="_blank">LinkedIn</a>
+    </div>
+  </aside>
+</section>
+
 
     <!-- Habilidades -->
     <section class="card reveal" id="habilidades">
@@ -88,20 +113,27 @@
       </div>
     </section>
 
-    <!-- Contato -->
-    <section class="card reveal" id="contato">
-      <h3>Contato</h3>
-      <p>Quer conversar sobre tecnologia, IA ou novos projetos? Entre em contato comigo 👇</p>
-      <div class="contact">
-        <div class="socials">
-          <a href="mailto:pedroguarnier07@gmail.com" title="Email">📧</a>
-          <a href="https://github.com/PedroGuarnier" target="_blank" title="GitHub">💻</a>
-          <a href="https://www.linkedin.com/in/pedroguarnier/" target="_blank" title="LinkedIn">🔗</a>
-        <a href="https://wa.me/5521970184255" target="_blank" title="WhatsApp">📞</a>
-
-        </div>
-      </div>
-    </section>
+   <!-- Contato -->
+<section class="card reveal" id="contato">
+  <h3>Contato</h3>
+  <p>Quer conversar sobre tecnologia, IA ou novos projetos? Entre em contato comigo 👇</p>
+  <div class="contact">
+    <div class="socials">
+      <a href="mailto:pedroguarnier07@gmail.com" target="_blank" title="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+      <a href="https://github.com/PedroGuarnier" target="_blank" title="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/pedroguarnier/" target="_blank" title="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="https://wa.me/5521970184255" target="_blank" title="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+    </div>
+  </div>
+</section>
 
     <!-- Rodapé -->
     <footer>
@@ -132,6 +164,25 @@
     };
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
+    // Modal de certificados
+const certBtn = document.getElementById("certBtn");
+const certModal = document.getElementById("certModal");
+const closeBtn = certModal.querySelector(".close");
+
+certBtn.addEventListener("click", () => {
+  certModal.style.display = "flex";
+});
+
+closeBtn.addEventListener("click", () => {
+  certModal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === certModal) {
+    certModal.style.display = "none";
+  }
+});
+    
   </script>
 </body>
 </html>
