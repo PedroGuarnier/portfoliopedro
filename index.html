@@ -3,186 +3,480 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfólio - Pedro Guarnier</title>
-  <link rel="stylesheet" href="style.css"/> <!-- Seu CSS atualizado -->
+  <title>Pedro Guarnier — Dev & TI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="container">
-    
-    <!-- Header -->
-    <header>
-      <div class="brand">
-        <div class="logo">PG</div>
-        <h1>Pedro Guarnier</h1>
+
+  <!-- Cursor personalizado -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- Noise overlay -->
+  <div class="noise"></div>
+
+  <!-- Header -->
+  <header id="header">
+    <a class="logo-link" href="#sobre">
+      <div class="logo-badge">PG</div>
+    </a>
+    <nav id="nav">
+      <a href="#sobre" class="nav-link" data-i18n="nav.about">Sobre</a>
+      <a href="#experiencia" class="nav-link" data-i18n="nav.experience">Experiência</a>
+      <a href="#projetos" class="nav-link" data-i18n="nav.projects">Projetos</a>
+      <a href="#habilidades" class="nav-link">Skills</a>
+      <a href="#contato" class="nav-link" data-i18n="nav.contact">Contato</a>
+    </nav>
+    <button class="lang-btn" id="langBtn" title="Switch to English">EN</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="sobre">
+      <div class="hero-bg-text">DEV</div>
+
+      <div class="hero-content">
+        <div class="hero-label reveal-up" data-i18n="hero.label">Rio de Janeiro · Freelas & colaborações</div>
+
+        <h1 class="hero-title reveal-up" style="--d:.1s">
+          Pedro<br>
+          <span class="gradient-text">Guarnier</span>
+        </h1>
+
+        <p class="hero-role reveal-up" style="--d:.2s" data-i18n="hero.role">
+          Estagiário de TI & Dev · Ciência da Computação
+        </p>
+
+        <p class="hero-bio reveal-up" style="--d:.3s" data-i18n-html="hero.bio">
+          Desenvolvedor com background em Marketing — combino visão de produto com capacidade técnica.
+          No <strong>Escritório de Advocacia Zveiter</strong> construo dashboards, automações e soluções de IA
+          aplicada ao direito desde 2024. Formado em Marketing pela Estácio, finalizando CC nas Américas.
+        </p>
+
+        <div class="hero-actions reveal-up" style="--d:.4s">
+          <a href="pdf/CV_Pedro_Guarnier_2026_1 (1) (1).pdf" class="btn-primary" download>
+            <i class="fa-solid fa-download"></i> <span data-i18n="hero.cv">Baixar CV</span>
+          </a>
+          <button class="btn-ghost" id="certBtn">
+            <i class="fa-solid fa-certificate"></i> <span data-i18n="hero.certs">Certificados</span>
+          </button>
+          <a href="#contato" class="btn-ghost">
+            <i class="fa-solid fa-paper-plane"></i> <span data-i18n="hero.contact">Contato</span>
+          </a>
+        </div>
+
+        <div class="hero-links reveal-up" style="--d:.5s">
+          <a href="https://github.com/PedroGuarnier" target="_blank" class="social-chip">
+            <i class="fa-brands fa-github"></i> PedroGuarnier
+          </a>
+          <a href="https://www.linkedin.com/in/pedroguarnier/" target="_blank" class="social-chip">
+            <i class="fa-brands fa-linkedin"></i> pedroguarnier
+          </a>
+        </div>
       </div>
 
-      <!-- Botão hambúrguer -->
-      <div class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="hero-photo reveal-right" style="--d:.2s">
+        <div class="photo-frame">
+          <img src="foto/fotopedro22.jpeg" alt="Pedro Guarnier" class="avatar">
+          <div class="photo-glow"></div>
+        </div>
+        <div class="photo-badge">
+          <i class="fa-solid fa-code"></i> <span data-i18n="hero.badge">Dev & TI</span>
+        </div>
       </div>
 
-      <!-- Menu -->
-      <nav>
-        <a href="#sobre">Sobre</a>
-        <a href="#habilidades">Habilidades</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#contato">Contato</a>
-      </nav>
-    </header>
-
-    <!-- Hero -->
-<section class="hero" id="sobre">
-  <!-- Coluna da esquerda -->
-  <div class="card intro reveal">
-    <h2>Olá, eu sou o Pedro 👋</h2>
-    <p>
-      Estagiário de TI no Escritório de Advocacia Zveiter, Estudante de Ciência da Computação e formado em Marketing,
-      apaixonado por resolver problemas através de tecnologia. Atuo com suporte técnico, infraestrutura e desenvolvimento web,
-      enquanto me especializo em Inteligência Artificial e Ciência de Dados.
-    </p>
-
-    <div class="cta">
-      <a href="pdf/CV Pedro Guarnier (2).pdf" class="btn" download>📄 Baixar CV</a>
-      <button class="ghost" id="certBtn">🏅 Certificados</button>
-    </div>
-
-    <!-- Modal de Certificados -->
-    <div id="certModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3>📜 Meus Certificados</h3>
-        <ul class="cert-list">
-            <li>🔹 <strong>Python para Análise de Dados</strong> — DataCamp</li>
-            <li>🔹 <strong>Desenvolvimento Web Moderno</strong> — Digital Innovation One (DIO)</li>
-            <li>🔹 <strong>CHATGPT For Devs</strong> — Digital Innovation One (DIO)</li>
-            <li>🔹 <strong>Git e Controle de Versão</strong> — Digital Innovation One (DIO)</li>
-            <li>🔹 <strong>Prompts Inteligentes</strong> — Microsoft</li>
-        </ul>
-      </div>
-    </div>
-  </div> <!-- 🔹 fecha a intro -->
-
-  <!-- Coluna da direita -->
-  <aside class="card profile-card reveal">
-    <img src="foto/fotopedro22.jpeg" alt="Foto de Pedro Guarnier" class="avatar-img">
-    <strong>Pedro Guarnier</strong>
-    <div class="meta">Rio de Janeiro, Brasil</div>
-    <div style="margin-top:12px;display:flex;gap:10px">
-      <a class="ghost" href="https://github.com/PedroGuarnier" target="_blank">GitHub</a>
-      <a class="ghost" href="https://www.linkedin.com/in/pedroguarnier/" target="_blank">LinkedIn</a>
-    </div>
-  </aside>
-</section>
-
-
-    <!-- Habilidades -->
-    <section class="card reveal" id="habilidades">
-      <h3>Habilidades Técnicas</h3>
-      <div class="grid-3">
-        <div class="skill"><h4>💻 Linguagens</h4><p>Python, JavaScript, PHP, Node.js</p></div>
-        <div class="skill"><h4>🗄️ Bancos & Ferramentas</h4><p>SQL, Git, Active Directory, Microsoft 365</p></div>
-        <div class="skill"><h4>🌐 Web</h4><p>HTML, CSS, React, Desenvolvimento Responsivo</p></div>
-        <div class="skill"><h4>🤖 IA & Dados</h4><p>Machine Learning, LLMs, Análise e Visualização</p></div>
-        <div class="skill"><h4>🔧 Infraestrutura</h4><p>Redes, Hardware, Suporte Técnico</p></div>
-      </div>
-    </section>
-
-    <!-- Projetos -->
-    <section class="card reveal" id="projetos">
-      <h3>Projetos</h3>
-      <div class="projects">
-        <article class="project">
-          <h4>Site Institucional — Escritório de Advocacia Zveiter</h4>
-          <p>Desenvolvimento responsivo do site institucional usando HTML, CSS e JavaScript. Implementação de menu interativo, rolagem suave e otimizações de usabilidade.</p>
-          <div class="project-links">
-            <a href="https://zveiter.com.br" target="_blank" class="btn-sm">🌐 Ver Site</a>
-            <a href="https://github.com/PedroGuarnier/SiteZveiter" target="_blank" class="ghost-sm">💻 Código no GitHub</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <h4>Exploração em IA & Dados</h4>
-          <p>Implementação de scripts em Python para análise de dados, estudos de Machine Learning supervisionado e experimentos com modelos de linguagem (LLMs).</p>
-          <div class="project-links">
-          </div>
-        </article>
+      <div class="hero-stats reveal-up" style="--d:.6s">
+        <div class="stat">
+          <span class="stat-num">2+</span>
+          <span class="stat-label" data-i18n="hero.stat1">anos em TI</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">~80</span>
+          <span class="stat-label" data-i18n="hero.stat2">usuários suportados</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">6+</span>
+          <span class="stat-label" data-i18n="hero.stat3">projetos entregues</span>
+        </div>
       </div>
     </section>
 
-   <!-- Contato -->
-<section class="card reveal" id="contato">
-  <h3>Contato</h3>
-  <p>Quer conversar sobre tecnologia, IA ou novos projetos? Entre em contato comigo 👇</p>
-  <div class="contact">
-    <div class="socials">
-      <a href="mailto:pedroguarnier07@gmail.com" target="_blank" title="Email">
-        <i class="fa-solid fa-envelope"></i>
-      </a>
-      <a href="https://github.com/PedroGuarnier" target="_blank" title="GitHub">
-        <i class="fa-brands fa-github"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/pedroguarnier/" target="_blank" title="LinkedIn">
-        <i class="fa-brands fa-linkedin"></i>
-      </a>
-      <a href="https://wa.me/5521970184255" target="_blank" title="WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-      </a>
+    <!-- ===== EXPERIÊNCIA ===== -->
+    <section class="section" id="experiencia">
+      <div class="section-header reveal-up">
+        <span class="section-tag" data-i18n="exp.tag">Trajetória</span>
+        <h2 class="section-title" data-i18n="exp.title">Experiência</h2>
+      </div>
+
+      <div class="timeline reveal-up" style="--d:.1s">
+
+        <div class="timeline-item current">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <span class="tl-period" data-i18n="exp.period1">Jan 2024 — Presente</span>
+              <span class="tl-badge current-badge" data-i18n="exp.badge">Atual</span>
+            </div>
+            <h3 class="tl-title" data-i18n="exp.role1">Estagiário de TI & Desenvolvimento</h3>
+            <p class="tl-company" data-i18n-html="exp.company1">
+              <a href="https://zveiter.com.br" target="_blank">Escritório de Advocacia Zveiter</a>
+              · Rio de Janeiro
+            </p>
+            <ul class="tl-list">
+              <li data-i18n-html="exp.li1_1">Suporte técnico para ~80 usuários: Active Directory, Microsoft 365, hardware e redes</li>
+              <li data-i18n-html="exp.li1_2">Desenvolvimento do <strong>site institucional</strong> responsivo (HTML/CSS/JS)</li>
+              <li data-i18n-html="exp.li1_3">Criação de <strong>dashboard web</strong> de Custas Diárias com Google Sheets + SheetDB como backend</li>
+              <li data-i18n-html="exp.li1_4">Implementação de <strong>guia interativo de IA</strong> para 13 áreas de prática jurídica (Gemini, Claude, NotebookLM, JusBrasil)</li>
+              <li data-i18n-html="exp.li1_5">Desenvolvimento de <strong>sistema de monitoramento judicial</strong> com FastAPI, WebSocket e dashboard Next.js</li>
+              <li data-i18n-html="exp.li1_6">Pesquisa e avaliação de plataformas de IA jurídica (Turivius, JusBrasil IA)</li>
+            </ul>
+            <div class="tl-tags">
+              <span>Python</span><span>FastAPI</span><span>JavaScript</span><span>HTML/CSS</span>
+              <span>Next.js</span><span>Active Directory</span><span>M365</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <span class="tl-period" data-i18n="exp.period2">2020 — 2024</span>
+            </div>
+            <h3 class="tl-title" data-i18n="exp.role2">Projetos Freelance & Acadêmicos</h3>
+            <p class="tl-company" data-i18n="exp.company2">Diversos · Rio de Janeiro</p>
+            <ul class="tl-list">
+              <li data-i18n="exp.li2_1">Projetos de desenvolvimento web e automação durante graduação em Marketing (Estácio de Sá)</li>
+              <li data-i18n-html="exp.li2_2">Simulador de dividendos com React 18 e Recharts para projeção de carteiras de FIIs e ações</li>
+            </ul>
+            <div class="tl-tags">
+              <span>HTML/CSS</span><span>JavaScript</span><span>Marketing Digital</span><span data-i18n="exp.tag_data">Análise de Dados</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== PROJETOS ===== -->
+    <section class="section" id="projetos">
+      <div class="section-header reveal-up">
+        <span class="section-tag" data-i18n="proj.tag">Portfólio</span>
+        <h2 class="section-title" data-i18n="proj.title">Projetos</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Projeto 1 - Destaque -->
+        <article class="project-card featured reveal-up" style="--d:.05s">
+          <div class="project-accent"></div>
+          <div class="project-label" data-i18n="proj.label1">Destaque · IA Jurídica</div>
+          <h3 data-i18n="proj.h3_1">Sistema de Monitoramento Judicial com IA</h3>
+          <p data-i18n="proj.p1">
+            Plataforma full-stack para acompanhamento de processos judiciais em tempo real.
+            Backend FastAPI com agentes de IA, WebSocket para updates ao vivo e dashboard Next.js 14
+            com TypeScript, Tailwind e Recharts. Desenvolvido para o Escritório de Advocacia Zveiter.
+          </p>
+          <div class="project-tech">
+            <span>Python</span><span>FastAPI</span><span>Next.js 14</span><span>TypeScript</span>
+            <span>WebSocket</span><span>Tailwind</span><span>Recharts</span>
+          </div>
+          <div class="project-screenshot">
+            <img src="foto/eaz-monitor.png" alt="Screenshot do Sistema de Monitoramento Judicial EAZ" />
+          </div>
+        </article>
+
+        <!-- Projeto 2 -->
+        <article class="project-card reveal-up" style="--d:.1s">
+          <div class="project-label" data-i18n="proj.label2">Dashboard · FinTech Jurídica</div>
+          <h3 data-i18n="proj.h3_2">Dashboard de Custas Diárias</h3>
+          <p data-i18n="proj.p2">
+            App web com Google Sheets como backend (via SheetDB) para controle de custas processuais.
+            Inclui saldos de clientes, exportação PDF, observações e responsividade mobile completa.
+          </p>
+          <div class="project-tech">
+            <span>JavaScript</span><span>HTML/CSS</span><span>Google Sheets API</span><span>SheetDB</span><span>PDF Export</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/PedroGuarnier/dashboardEAZ" target="_blank" class="btn-sm">
+              <i class="fa-brands fa-github"></i> <span data-i18n="btn.code">Código</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Projeto 3 -->
+        <article class="project-card reveal-up" style="--d:.15s">
+          <div class="project-label" data-i18n="proj.label3">Site · Institucional</div>
+          <h3 data-i18n="proj.h3_3">Site Institucional — Zveiter Advocacia</h3>
+          <p data-i18n="proj.p3">
+            Site Art Déco premium com design em preto e dourado, tipografia Cormorant Garamond,
+            animações CSS puras e SEO estruturado. Páginas de equipe, casos e recuperação judicial (GAS Consultoria).
+          </p>
+          <div class="project-tech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>SEO</span>
+          </div>
+          <div class="project-links">
+            <a href="https://zveiter.com.br" target="_blank" class="btn-sm">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="btn.visit">Ver Site</span>
+            </a>
+            <a href="https://github.com/PedroGuarnier/SiteZveiter" target="_blank" class="btn-sm ghost-sm">
+              <i class="fa-brands fa-github"></i> <span data-i18n="btn.code">Código</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Projeto 4 -->
+        <article class="project-card reveal-up" style="--d:.2s">
+          <div class="project-label" data-i18n="proj.label4">Guia Interativo · IA</div>
+          <h3 data-i18n="proj.h3_4">Guia de IA para Escritórios de Advocacia</h3>
+          <p data-i18n="proj.p4">
+            Single-page app com design Art Déco para capacitação de advogados no uso de IA.
+            Cobre Google Gemini, NotebookLM, Claude e JusBrasil com prompts prontos, workflows
+            multi-ferramenta e matriz filtrável por área de prática.
+          </p>
+          <div class="project-tech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>LLMs</span><span>UX Writing</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/PedroGuarnier/apresentacaoiazveiter" target="_blank" class="btn-sm ghost-sm">
+              <i class="fa-brands fa-github"></i> <span data-i18n="btn.code">Código</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Projeto 5 -->
+        <article class="project-card reveal-up" style="--d:.25s">
+          <div class="project-label" data-i18n="proj.label5">Simulador · Finanças</div>
+          <h3 data-i18n="proj.h3_5">Simulador de Dividendos</h3>
+          <p data-i18n="proj.p5">
+            Simulador interativo de carteira de investimentos brasileiros com reinvestimento
+            automático de dividendos. Projeta crescimento patrimonial de 1 a 10 anos com FIIs
+            e ações pagadoras de dividendos, gráficos de evolução e renda passiva estimada.
+          </p>
+          <div class="project-tech">
+            <span>React 18</span><span>Recharts</span><span>Vite</span><span>JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/PedroGuarnier/simulacaodividendos" target="_blank" class="btn-sm ghost-sm">
+              <i class="fa-brands fa-github"></i> <span data-i18n="btn.code">Código</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== HABILIDADES ===== -->
+    <section class="section" id="habilidades">
+      <div class="section-header reveal-up">
+        <span class="section-tag" data-i18n="skills.tag">Competências</span>
+        <h2 class="section-title" data-i18n="skills.title">Habilidades</h2>
+      </div>
+
+      <div class="skills-layout">
+        <div class="skills-col reveal-up" style="--d:.05s">
+          <div class="skill-group">
+            <div class="skill-group-label" data-i18n-html="skills.label1"><i class="fa-solid fa-code"></i> Linguagens & Web</div>
+            <div class="skill-bars">
+              <div class="skill-bar">
+                <span>HTML / CSS</span>
+                <div class="bar"><div class="bar-fill" style="--w:90%"></div></div>
+              </div>
+              <div class="skill-bar">
+                <span>JavaScript</span>
+                <div class="bar"><div class="bar-fill" style="--w:85%"></div></div>
+              </div>
+              <div class="skill-bar">
+                <span>Python</span>
+                <div class="bar"><div class="bar-fill" style="--w:80%"></div></div>
+              </div>
+              <div class="skill-bar">
+                <span>SQL</span>
+                <div class="bar"><div class="bar-fill" style="--w:65%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-col reveal-up" style="--d:.1s">
+          <div class="skill-group">
+            <div class="skill-group-label" data-i18n-html="skills.label2"><i class="fa-solid fa-server"></i> Infraestrutura & TI</div>
+            <div class="skill-tags-grid">
+              <span class="skill-tag">Active Directory</span>
+              <span class="skill-tag">Microsoft 365</span>
+              <span class="skill-tag" data-i18n="skills.ti1">Suporte Técnico</span>
+              <span class="skill-tag">Redes</span>
+              <span class="skill-tag">Hardware</span>
+              <span class="skill-tag" data-i18n="skills.ti2">Gestão de Ativos</span>
+            </div>
+          </div>
+          <div class="skill-group" style="margin-top:24px">
+            <div class="skill-group-label" data-i18n-html="skills.label3"><i class="fa-solid fa-robot"></i> IA & Ferramentas</div>
+            <div class="skill-tags-grid">
+              <span class="skill-tag highlight">FastAPI</span>
+              <span class="skill-tag highlight">Next.js</span>
+              <span class="skill-tag highlight">Git</span>
+              <span class="skill-tag highlight">LLMs / Prompting</span>
+              <span class="skill-tag highlight">Google Gemini</span>
+              <span class="skill-tag highlight">Claude AI</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-col reveal-up" style="--d:.15s">
+          <div class="skill-group">
+            <div class="skill-group-label" data-i18n-html="skills.label4"><i class="fa-solid fa-graduation-cap"></i> Formação</div>
+            <div class="education-list">
+              <div class="edu-item">
+                <div class="edu-period">2023 — 2026</div>
+                <div class="edu-title" data-i18n="skills.edu1_title">Bacharelado em Ciência da Computação</div>
+                <div class="edu-school">Estácio de Sá</div>
+              </div>
+              <div class="edu-item">
+                <div class="edu-period">2020 — 2024</div>
+                <div class="edu-title" data-i18n="skills.edu2_title">Bacharelado em Marketing</div>
+                <div class="edu-school">Estácio de Sá</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-group" style="margin-top:24px">
+            <div class="skill-group-label">
+              <i class="fa-solid fa-certificate"></i> <span data-i18n="skills.label5_text">Certificados</span>
+              <button class="cert-inline-btn" id="certBtn2" data-i18n="skills.certBtn">ver todos</button>
+            </div>
+            <div class="cert-preview">
+              <div class="cert-item"><i class="fa-solid fa-check"></i> <span data-i18n="cert.p1">ChatGPT for Devs — DIO</span></div>
+              <div class="cert-item"><i class="fa-solid fa-check"></i> <span data-i18n="cert.p2">Lógica de Programação — DIO</span></div>
+              <div class="cert-item"><i class="fa-solid fa-check"></i> <span data-i18n="cert.p3">Prompts Inteligentes — Microsoft</span></div>
+              <div class="cert-item cert-item--progress"><i class="fa-solid fa-clock"></i> <span data-i18n="cert.p4">Full Stack Python — EBAC</span> <span class="cert-badge-progress" data-i18n="cert.in_progress_label">Cursando</span></div>
+              <div class="cert-item cert-item--progress"><i class="fa-solid fa-clock"></i> <span data-i18n="cert.p5">Python p/ Análise de Dados — EBAC</span> <span class="cert-badge-progress" data-i18n="cert.in_progress_label">Cursando</span></div>
+              <div class="cert-item cert-item--progress"><i class="fa-solid fa-clock"></i> <span data-i18n="cert.p6">Inteligência Artificial — EBAC</span> <span class="cert-badge-progress" data-i18n="cert.in_progress_label">Cursando</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTATO ===== -->
+    <section class="section" id="contato">
+      <div class="contact-wrapper reveal-up">
+        <div class="contact-left">
+          <span class="section-tag" data-i18n="contact.tag">Vamos conversar</span>
+          <h2 class="section-title" data-i18n="contact.title">Contato</h2>
+          <p class="contact-text" data-i18n-html="contact.text">
+            Freelas e colaborações em projetos de tecnologia —
+            especialmente na interseção entre <strong>IA, desenvolvimento web e automação</strong>.
+          </p>
+          <a href="mailto:pedroguarnier07@gmail.com" class="email-link">
+            pedroguarnier07@gmail.com <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <div class="contact-socials">
+            <a href="https://github.com/PedroGuarnier" target="_blank" title="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/pedroguarnier/" target="_blank" title="LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://wa.me/5521970184255" target="_blank" title="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+        <div class="contact-right">
+          <div class="contact-card">
+            <div class="contact-card-line">
+              <i class="fa-solid fa-location-dot"></i>
+              <span data-i18n="contact.location">Rio de Janeiro, Brasil</span>
+            </div>
+            <div class="contact-card-line">
+              <i class="fa-solid fa-briefcase"></i>
+              <span data-i18n="contact.role">Estagiário TI & Dev · Zveiter</span>
+            </div>
+            <div class="contact-card-line available">
+              <i class="fa-solid fa-circle"></i>
+              <span data-i18n="contact.available">Freelas & colaborações em projetos</span>
+            </div>
+            <div class="contact-card-line">
+              <i class="fa-solid fa-language"></i>
+              <span data-i18n="contact.lang">Português · Inglês</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p data-i18n="footer.text">© 2025 Pedro Guarnier &mdash; Desenvolvido com HTML, CSS & JS puro</p>
+  </footer>
+
+  <!-- Modal de Certificados -->
+  <div id="certModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+      <h3 data-i18n-html="modal.title"><i class="fa-solid fa-certificate"></i> Certificados</h3>
+      <ul class="cert-list">
+        <li>
+          <div class="cert-name" data-i18n="modal.c1_name">ChatGPT for Devs</div>
+          <div class="cert-issuer">Digital Innovation One (DIO)</div>
+        </li>
+        <li>
+          <div class="cert-name" data-i18n="modal.c2_name">Lógica de Programação</div>
+          <div class="cert-issuer">Digital Innovation One (DIO)</div>
+        </li>
+        <li>
+          <div class="cert-name" data-i18n="modal.c3_name">Desenvolvimento Web Moderno</div>
+          <div class="cert-issuer">Digital Innovation One (DIO)</div>
+        </li>
+        <li>
+          <div class="cert-name" data-i18n="modal.c4_name">Git e Controle de Versão</div>
+          <div class="cert-issuer">Digital Innovation One (DIO)</div>
+        </li>
+        <li>
+          <div class="cert-name" data-i18n="modal.c5_name">Prompts Inteligentes</div>
+          <div class="cert-issuer">Microsoft</div>
+        </li>
+        <li>
+          <div class="cert-name" data-i18n="modal.c6_name">Python para Análise de Dados</div>
+          <div class="cert-issuer">DataCamp</div>
+        </li>
+        <li class="cert-list-item--progress">
+          <div class="cert-name">
+            Full Stack Python
+            <span class="cert-badge-progress" data-i18n="cert.in_progress_label">Cursando</span>
+          </div>
+          <div class="cert-issuer">EBAC</div>
+        </li>
+        <li class="cert-list-item--progress">
+          <div class="cert-name">
+            <span data-i18n="modal.c8_name">Python para Análise de Dados</span>
+            <span class="cert-badge-progress" data-i18n="cert.in_progress_label">Cursando</span>
+          </div>
+          <div class="cert-issuer">EBAC</div>
+        </li>
+        <li class="cert-list-item--progress">
+          <div class="cert-name">
+            <span data-i18n="modal.c9_name">Inteligência Artificial</span>
+            <span class="cert-badge-progress" data-i18n="cert.in_progress_label">Cursando</span>
+          </div>
+          <div class="cert-issuer">EBAC</div>
+        </li>
+      </ul>
     </div>
   </div>
-</section>
 
-    <!-- Rodapé -->
-    <footer>
-      <p>© 2025 Pedro Guarnier — Todos os direitos reservados</p>
-    </footer>
-
-  </div>
-
-  <!-- JavaScript -->
-  <script>
-    // Menu responsivo
-    const menuToggle = document.getElementById('menuToggle');
-    const header = document.querySelector('header');
-
-    menuToggle.addEventListener('click', () => {
-      header.classList.toggle('menu-open');
-    });
-
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const revealOnScroll = () => {
-      reveals.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 50) {
-          el.classList.add('active');
-        }
-      });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
-    // Modal de certificados
-const certBtn = document.getElementById("certBtn");
-const certModal = document.getElementById("certModal");
-const closeBtn = certModal.querySelector(".close");
-
-certBtn.addEventListener("click", () => {
-  certModal.style.display = "flex";
-});
-
-closeBtn.addEventListener("click", () => {
-  certModal.style.display = "none";
-});
-
-window.addEventListener("click", (e) => {
-  if (e.target === certModal) {
-    certModal.style.display = "none";
-  }
-});
-    
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
